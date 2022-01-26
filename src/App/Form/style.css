@@ -18,6 +18,8 @@
     width: 100%;
     display:inline-block;
     margin-right: 15px;
+    padding: 10px;
+    margin-bottom: 5px;
 }
 
 .form__field{
@@ -56,4 +58,9 @@
 
 .form__button:active{
     background-color: hsl(98, 95%, 47%);
+}
+
+.form__paragraph{
+    text-align: center;
+    font-size: small;
 }
