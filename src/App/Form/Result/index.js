@@ -1,7 +1,7 @@
-import "./style.css";
+import {Wrapper} from "./styled";
 
 export const Result = ({result}) => (
-    <p className="result">
+    <Wrapper>
         {result !== undefined && (
             <>
             {result.sourceAmount.toFixed(2)}&nbsp;{result.currency}&nbsp;=
@@ -9,5 +9,5 @@ export const Result = ({result}) => (
             {result.targetAmount.toFixed(2)}&nbsp;PLN
             </>
         )}
-    </p>
+    </Wrapper>
 );
