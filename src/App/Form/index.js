@@ -1,7 +1,15 @@
 import {useState} from "react";
 import {currencies} from "../currencies";
 import {Result} from "./Result";
-import "./style.css";
+import {
+  Button,
+  Disclaimer,
+  Field, 
+  Fieldset,
+  LabelElement, 
+  Legend, 
+  Select
+} from "./styled";
 
 export const Form = () => {
   const [result, setResult] = useState();
@@ -40,61 +48,58 @@ export const Form = () => {
       onSubmit={onSubmit}
       onReset={onReset}
     >
-      <fieldset className="form__fieldset">
-        <legend className="form__legend">
-        Kalkulator walutowy by Wojciech K
-        </legend>
-          <label>
-            <span className="form__labelElement">
-            1. Wybierz walutę z listy:
-            </span>
-            <select 
-              className="form__field" 
-              value={currency} 
-              onChange={({target}) => setCurrency(target.value)} 
-              autoFocus
-            >
-              {currencies.map((currency => (
-                <option 
-                  key={currency.short} 
-                  value={currency.short}
-                >
-                  {currency.name}
-                </option>
-              )))}
-            </select>
-          </label>
-          
-          <label>
-            <span className="form__labelElement">
-            2. Wpisz kwotę w wybranej walucie:*
-            </span>
-              <input 
-                className="form__field" 
-                value={amount} 
-                onChange={({target}) => setAmount(target.value)} 
-                type="number" 
-                placeholder="0.01" 
-                step="0.01"
-                min="0.01" 
-                max="1000000" 
-                required
-                autoFocus
-              />
-          </label>
+      <Fieldset>
+        <Legend>
+          Kalkulator walutowy by Wojciech K
+        </Legend>
+        
+        <LabelElement>
+              1. Wybierz walutę z listy:
+        </LabelElement>
+            
+          <Select 
+            value={currency} 
+            onChange={({target}) => setCurrency(target.value)} 
+            autoFocus
+          >
+            {currencies.map((currency => (
+              <option 
+                key={currency.short} 
+                value={currency.short}
+              >
+                {currency.name}
+              </option>
+            )))}
+          </Select>
+        
+        <LabelElement>
+          2. Wpisz kwotę w wybranej walucie:*
+        </LabelElement>
+          <Field 
+            value={amount} 
+            onChange={({target}) => setAmount(target.value)} 
+            type="number" 
+            placeholder="0.01" 
+            step="0.01"
+            min="0.01" 
+            max="1000000" 
+            required
+            autoFocus
+          >
+          </Field>
 
-          <p className="form__paragraph">Pole * nie może być puste</p>
+        <Disclaimer>Pole * nie może być puste</Disclaimer>
 
-          <button className="form__button">
+        <Button>
           Przelicz na złotówki (PLN):
-          </button>
+        </Button>
 
-          <button className="form__button" type="reset">
+        <Button type="reset">
           Wyczyść
-          </button>
+        </Button>
                   
-          <Result result={result} />
-      </fieldset>
+        <Result result={result} />
+      </Fieldset>
     </form>
   )
 };
