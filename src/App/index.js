@@ -1,14 +1,14 @@
-import './App.css';
+import {Wrapper} from './styled'
 import {Form} from './Form';
 import {Clock} from './Clock';
 
 function App() {
   
   return (
-    <div className="app">
+    <Wrapper>
       <Clock/>
       <Form/>
-    </div>
+    </Wrapper>
   );
 };
 
