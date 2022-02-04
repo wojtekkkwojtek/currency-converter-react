@@ -38,25 +38,6 @@ export const Field = styled.input`
     }
 `;
 
-export const Select = styled.select`
-    border: 2px solid rgb(204, 204, 204);
-    padding: 10px;
-    width: 100%;
-    max-width: 250px;
-    border-radius: 15px;
-    border-color: black;
-    margin-bottom: 5px;
-
-    &:required{
-        border-color: rgb(0, 47, 255);
-        background-color: rgba(250, 246, 246, 0.705);
-    }
-    
-    &:valid{
-        background-color: #6bf36b;
-    }
-`;
-
 export const Disclaimer = styled.p`
     text-align: center;
     font-size: small;

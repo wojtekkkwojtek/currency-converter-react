@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useState, useRef} from "react";
 import {currencies} from "../currencies";
 import {Result} from "./Result";
 import {
@@ -8,11 +8,11 @@ import {
   Fieldset,
   LabelElement, 
   Legend, 
-  Select
 } from "./styled";
 
 export const Form = () => {
   const [result, setResult] = useState();
+  const inputRef = useRef(null);
   
   const calculateResult = (currency, amount) => {
     const rate = currencies
@@ -40,6 +40,7 @@ export const Form = () => {
     setAmount("");
     setCurrency(currencies[2].short);
     setResult();
+    inputRef.current.focus();
   };
 
   return (
@@ -57,7 +58,8 @@ export const Form = () => {
               1. Wybierz walutę z listy:
         </LabelElement>
             
-          <Select 
+          <Field
+            as="select" 
             value={currency} 
             onChange={({target}) => setCurrency(target.value)} 
             autoFocus
@@ -70,12 +72,13 @@ export const Form = () => {
                 {currency.name}
               </option>
             )))}
-          </Select>
+          </Field>
         
         <LabelElement>
           2. Wpisz kwotę w wybranej walucie:*
         </LabelElement>
-          <Field 
+          <Field
+            ref={inputRef} 
             value={amount} 
             onChange={({target}) => setAmount(target.value)} 
             type="number" 
