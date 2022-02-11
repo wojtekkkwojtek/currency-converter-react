@@ -6,7 +6,7 @@ export const useAPIrates = () => {
         state: "loading",
     });
 
-    useEffect(() => {
+    /*useEffect(() => {
         const fetchRates = async () => {
             try {
                 const response = await fetch("https://api.exchangerate.host/latest?base=PLN");
@@ -30,7 +30,29 @@ export const useAPIrates = () => {
         };
 
         setTimeout(fetchRates, 1000);
+    }, []);*/
+
+    useEffect(() => {
+        const getRates = async () => {
+            try {
+                const response = await axios.get("https://api.exchangerate.host/latest?base=PLN");
+                const {rates, date} = response.data;
+                
+                setAPIrates({
+                    state: "success",
+                    rates,
+                    date,
+                });
+            } catch {
+                setAPIrates({
+                    state: "error",
+                });
+            }
+        };
+
+        setTimeout(getRates, 1*1000);
     }, []);
+
 
     return APIrates;
 };
