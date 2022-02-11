@@ -65,3 +65,13 @@ export const Legend = styled.legend`
     border-radius: 15px;
     padding: 10px;
 `;
+
+export const Loading = styled.p`
+    color: blue;
+    text-align: center;
+`;
+
+export const LoadingError = styled.p`
+    color: red;
+    text-align: center;
+`;
