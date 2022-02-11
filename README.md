@@ -1,19 +1,20 @@
 # Currency converter
 
-<img src="./public/Currency-converter-demo.gif" alt="demo animation">
+<img src="./Currency-converter-demo.gif" alt="demo animation">
 
 https://wojtekkkwojtek.github.io/currency-converter-react/
 
 Description:
 
-Here is a simple currency converter that allows you to convert the entered amount in three popular currencies 
-like US Dollars, EURO, GBP to an equivalent in Polish Zloty. 
-First, you choose the currency. Pound sterling is set as the default option. 
+Here is a simple currency converter that allows you to convert the entered amount in a selected
+currency to an equivalent in Polish Zloty. 
+First, you choose the currency from the list. Euro is set as the default option. 
 In the next step you enter the amount and finally click on the button "Przelicz na złotówki(PLN)". 
 You can quickly delete the result ("Wyczyść) and perform a new calculation without refreshing the page.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). 
-Saving in localStorage, styled-components and custom hooks implemented.
+Saving in localStorage, styled-components, custom hooks and downloading data from external API implemented. 
+The currency data comes from the European Central Bank and its provider is https://exchangerate.host/#/
 
 ## Available Scripts
 
