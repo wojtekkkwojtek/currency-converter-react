@@ -10,16 +10,16 @@ import {
   Loading,
   LoadingError,
 } from "./styled";
-import {useAPIrates} from "./useAPIrates";
+import {useApiRates} from "./useApiRates";
 import loadingAnimation from "./loading.gif"
 
 export const Form = () => {
   const [result, setResult] = useState();
   const inputRef = useRef(null);
-  const APIrates = useAPIrates();
+  const ApiRates = useApiRates();
   
   const calculateResult = (currency, amount) => {
-    const rate = APIrates.rates[currency];
+    const rate = ApiRates.rates[currency];
     
     setResult({
       sourceAmount: +amount,
@@ -55,7 +55,7 @@ export const Form = () => {
           Kalkulator walutowy by Wojciech K
         </Legend>
         
-        {APIrates.state === "loading"
+        {ApiRates.state === "loading"
           ? (
             <Loading>
               Trwa pobieranie walut z&nbsp;Europejskiego Banku Centralnego
@@ -63,7 +63,7 @@ export const Form = () => {
             </Loading>
           )
           : (
-            APIrates.state === "error" 
+            ApiRates.state === "error" 
               ? (
                 <LoadingError>
                 Nie udało się pobrać danych i uruchomić aplikacji. 
@@ -84,7 +84,7 @@ export const Form = () => {
                     autoFocus
                   >
                 
-                    {Object.keys(APIrates.rates).map(((currency) => (
+                    {Object.keys(ApiRates.rates).map(((currency) => (
                       <option 
                         key={currency} 
                         value={currency}
@@ -114,7 +114,7 @@ export const Form = () => {
 
                   <Disclaimer>
                     Pole * nie może być puste
-                    <br/>Kalkulacja na dzień: {APIrates.date}
+                    <br/>Kalkulacja na dzień: {ApiRates.date}
                   </Disclaimer>
 
                   <Button>
