@@ -5,5 +5,9 @@ export const Wrapper = styled.p`
     text-align: center;
     font-size: 40px;
     text-decoration: underline;
+
+    @media (max-width: 737px) {
+        font-size: 20px;
+    }
 `;
 
