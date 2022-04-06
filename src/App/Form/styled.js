@@ -17,6 +17,11 @@ export const Button = styled.button`
     &:active {
         background-color: hsl(98, 95%, 47%);
     }    
+
+    @media (max-width: 737px) {
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
 `;
 
 export const Field = styled.input`
